@@ -4,10 +4,11 @@ subprojects {
     
     apply plugin: 'java'
     apply plugin: 'eclipse'
+    apply plugin: 'net.researchgate.release'
     
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
-
+    
     repositories {
       	mavenCentral()
 		maven { url "https://repo.spring.io/snapshot" }
@@ -29,11 +30,43 @@ subprojects {
         all*.exclude group: 'commons-logging'
         all*.exclude group: 'log4j'
     }
+    
+	release {
+	    failOnCommitNeeded = true
+	    failOnPublishNeeded = true
+	    failOnSnapshotDependencies = true
+	    failOnUnversionedFiles = true
+	    failOnUpdateNeeded = true
+	    revertOnFail = true
+	    preCommitText = ''
+	    preTagCommitMessage = '[Gradle Release Plugin] - pre tag commit: '
+	    tagCommitMessage = '[Gradle Release Plugin] - creating tag: '
+	    newVersionCommitMessage = '[Gradle Release Plugin] - new version commit: '
+	    tagTemplate = '${version}'
+	    versionPropertyFile = 'gradle.properties'
+	    versionProperties = []
+	    scmAdapters = [
+	        net.researchgate.release.GitAdapter
+	    ]
 
-    version = '1.0'
+	    git {
+	        requireBranch = 'master'
+	        pushToRemote = 'origin'
+	        pushToCurrentBranch = false
+	    }
+	}
 
     jar {
         manifest.attributes provider: 'Achieve.it'
+    }
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'net.researchgate:gradle-release:2.1.2'
     }
 }
  
