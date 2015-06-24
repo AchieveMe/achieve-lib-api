@@ -59,7 +59,7 @@ public class CPFGeneratorTest {
 	}
 	
 	@Test(timeout=10)
-	public void should_has_a_nice_performance_cnpj_with_points() {
+	public void should_has_a_nice_performance_cpf_with_points() {
 		while (listOfCPF.size() <= 500) {
 			cpfWithPoints = cpf.generateValue(withPoints);
 			
@@ -68,7 +68,7 @@ public class CPFGeneratorTest {
 	}
 	
 	@Test(timeout=10)
-	public void should_has_a_nice_performance_cnpj_with_no_points() {
+	public void should_has_a_nice_performance_cpf_with_no_points() {
 		while (listOfCPF.size() <= 500) {
 			cpfWithNoPoints = cpf.generateValue(withNoPoints);
 			
