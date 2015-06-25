@@ -3,7 +3,7 @@ package vc.achieve.api.commons.generator;
 import java.util.Random;
 
 /**
- * <p> Util class that generates a random but valid <b>Strings</b> and <b>Words</b>.</p>
+ * <p> Util class that generates random <b>Strings</b> and <b>Words</b>.</p>
  * 
  * @author Alberto Cerqueira - <a href=˜mailto:alberto.cerqueira1990@gmail.com˜ />
  * @since 1.0

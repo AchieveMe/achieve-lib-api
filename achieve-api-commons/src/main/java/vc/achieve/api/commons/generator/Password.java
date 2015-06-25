@@ -1,7 +1,7 @@
 package vc.achieve.api.commons.generator;
 
 /**
- * <p> Util class that generates a random but valid <b>Password</b>.</p>
+ * <p> Util class that generates random <b>Passwords</b>.</p>
  * 
  * @author Alberto Cerqueira - <a href=˜mailto:alberto.cerqueira1990@gmail.com˜ />
  * @since 1.0
