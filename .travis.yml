@@ -17,6 +17,6 @@ addons:
       name: "AchieveMe/achieve-lib-api"
       description: "A beautiful API"
     notification_email: achieveit@googlegroups.com
-    build_command_prepend: "gradle clean"
+    build_command_prepend: "gradle clean -x test"
     build_command:   "gradle build -x test"
     branch_pattern: coverity_scan
