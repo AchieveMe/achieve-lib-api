@@ -3,10 +3,11 @@ package vc.achieve.api.commons;
 import java.util.Arrays;
 
 /**
- * <p> UUtil class to work with array.</p>
+ * <p> Util class to work with array.</p>
  * 
  * @author Alberto Cerqueira - <a href=˜mailto:alberto.cerqueira1990@gmail.com˜ />
  * @since 1.0
+ * @version 1.1
  */
 public class ArrayUtils {
 
@@ -35,6 +36,9 @@ public class ArrayUtils {
 	 * @param pos position in the array
 	 * @param value value to put
 	 * @return false if position does not exist
+	 * 
+	 * @author Alberto Cerqueira
+	 * @since 1.0
 	 */
 	public boolean putValue(int pos, float value) {
 		if (pos < size) {
@@ -49,6 +53,9 @@ public class ArrayUtils {
 	/**
 	 * Average value
 	 * @return average value
+	 * 
+	 * @author Alberto Cerqueira
+	 * @since 1.0
 	 */
 	public double getMean() {
 		double total = 0;
@@ -61,6 +68,9 @@ public class ArrayUtils {
 	/**
 	 * The median (sorted array)
 	 * @return mediane
+	 * 
+	 * @author Alberto Cerqueira
+	 * @since 1.0
 	 */
 	public double medianSort() {
 		if (!sorted) {
@@ -100,6 +110,9 @@ public class ArrayUtils {
 	/**
 	 * The minimum value
 	 * @return min value
+	 * 
+	 * @author Alberto Cerqueira
+	 * @since 1.0
 	 */
 	public double getMinimum() {
 		double min = values[0];
@@ -114,6 +127,9 @@ public class ArrayUtils {
 	/**
 	 * The maximum value
 	 * @return max value
+	 * 
+	 * @author Alberto Cerqueira
+	 * @since 1.0
 	 */
 	public double getMaximum() {
 		double max = values[0];
@@ -128,6 +144,9 @@ public class ArrayUtils {
 	/**
 	 * Variance value
 	 * @return variance
+	 * 
+	 * @author Alberto Cerqueira
+	 * @since 1.0
 	 */
 	public double getVariance() {
 		if (size == 1) {
@@ -149,6 +168,9 @@ public class ArrayUtils {
 	/**
 	 * information to be displayed
 	 * @return text
+	 * 
+	 * @author Alberto Cerqueira
+	 * @since 1.0
 	 */
 	public String toString() {
 		String str = "{" + values[0];
@@ -164,8 +186,177 @@ public class ArrayUtils {
      * @param <V>
      * @param sourceArray
      * @return
+     * 
+     * @author Alberto Cerqueira
+	 * @since 1.0
      */
     public static <V> boolean isEmpty(V[] sourceArray) {
         return (sourceArray == null || sourceArray.length == 0);
+    }
+    
+    /**
+     * get last element of the target element, before the first one that match the target element front to back
+     * <ul>
+     * <li>if array is empty, return defaultValue</li>
+     * <li>if target element is not exist in array, return defaultValue</li>
+     * <li>if target element exist in array and its index is not 0, return the last element</li>
+     * <li>if target element exist in array and its index is 0, return the last one in array if isCircle is true, else
+     * return defaultValue</li>
+     * </ul>
+     * 
+     * @param <V>
+     * @param sourceArray
+     * @param value value of target element
+     * @param defaultValue default return value
+     * @param isCircle whether is circle
+     * @return
+     * 
+     * @author Alberto Cerqueira
+	 * @since 1.1
+     */
+    public static <V> V getLast(V[] sourceArray, V value, V defaultValue, boolean isCircle) {
+        if (isEmpty(sourceArray)) {
+            return defaultValue;
+        }
+
+        int currentPosition = -1;
+        for (int i = 0; i < sourceArray.length; i++) {
+            if (ObjectUtils.isEquals(value, sourceArray[i])) {
+                currentPosition = i;
+                break;
+            }
+        }
+        if (currentPosition == -1) {
+            return defaultValue;
+        }
+
+        if (currentPosition == 0) {
+            return isCircle ? sourceArray[sourceArray.length - 1] : defaultValue;
+        }
+        return sourceArray[currentPosition - 1];
+    }
+
+    /**
+     * get next element of the target element, after the first one that match the target element front to back
+     * <ul>
+     * <li>if array is empty, return defaultValue</li>
+     * <li>if target element is not exist in array, return defaultValue</li>
+     * <li>if target element exist in array and not the last one in array, return the next element</li>
+     * <li>if target element exist in array and the last one in array, return the first one in array if isCircle is
+     * true, else return defaultValue</li>
+     * </ul>
+     * 
+     * @param <V>
+     * @param sourceArray
+     * @param value value of target element
+     * @param defaultValue default return value
+     * @param isCircle whether is circle
+     * @return
+     * 
+     * @author Alberto Cerqueira
+	 * @since 1.1
+     */
+    public static <V> V getNext(V[] sourceArray, V value, V defaultValue, boolean isCircle) {
+        if (isEmpty(sourceArray)) {
+            return defaultValue;
+        }
+
+        int currentPosition = -1;
+        for (int i = 0; i < sourceArray.length; i++) {
+            if (ObjectUtils.isEquals(value, sourceArray[i])) {
+                currentPosition = i;
+                break;
+            }
+        }
+        if (currentPosition == -1) {
+            return defaultValue;
+        }
+
+        if (currentPosition == sourceArray.length - 1) {
+            return isCircle ? sourceArray[0] : defaultValue;
+        }
+        return sourceArray[currentPosition + 1];
+    }
+
+    /**
+     * @see {@link ArrayUtils#getLast(Object[], Object, Object, boolean)} defaultValue is null
+     * 
+     * @author Alberto Cerqueira
+	 * @since 1.1
+     */
+    public static <V> V getLast(V[] sourceArray, V value, boolean isCircle) {
+        return getLast(sourceArray, value, null, isCircle);
+    }
+
+    /**
+     * @see {@link ArrayUtils#getNext(Object[], Object, Object, boolean)} defaultValue is null
+     * 
+     * @author Alberto Cerqueira
+	 * @since 1.1
+     */
+    public static <V> V getNext(V[] sourceArray, V value, boolean isCircle) {
+        return getNext(sourceArray, value, null, isCircle);
+    }
+
+    /**
+     * @see {@link ArrayUtils#getLast(Object[], Object, Object, boolean)} Object is Long
+     * 
+     * @author Alberto Cerqueira
+	 * @since 1.1
+     */
+    public static long getLast(long[] sourceArray, long value, long defaultValue, boolean isCircle) {
+        if (sourceArray.length == 0) {
+        	throw new IllegalArgumentException("O comprimento da matriz deve ser superior a 0.");
+        }
+
+        Long[] array = ObjectUtils.transformLongArray(sourceArray);
+        return getLast(array, value, defaultValue, isCircle);
+
+    }
+
+    /**
+     * @see {@link ArrayUtils#getNext(Object[], Object, Object, boolean)} Object is Long
+     * 
+     * @author Alberto Cerqueira
+	 * @since 1.1
+     */
+    public static long getNext(long[] sourceArray, long value, long defaultValue, boolean isCircle) {
+        if (sourceArray.length == 0) {
+        	throw new IllegalArgumentException("O comprimento da matriz deve ser superior a 0.");
+        }
+
+        Long[] array = ObjectUtils.transformLongArray(sourceArray);
+        return getNext(array, value, defaultValue, isCircle);
+    }
+    
+    /**
+     * @see {@link ArrayUtils#getLast(Object[], Object, Object, boolean)} Object is Integer
+     * 
+     * @author Alberto Cerqueira
+	 * @since 1.1
+     */
+    public static int getLast(int[] sourceArray, int value, int defaultValue, boolean isCircle) {
+        if (sourceArray.length == 0) {
+        	throw new IllegalArgumentException("O comprimento da matriz deve ser superior a 0.");
+        }
+
+        Integer[] array = ObjectUtils.transformIntArray(sourceArray);
+        return getLast(array, value, defaultValue, isCircle);
+
+    }
+
+    /**
+     * @see {@link ArrayUtils#getNext(Object[], Object, Object, boolean)} Object is Integer
+     * 
+     * @author Alberto Cerqueira
+	 * @since 1.1
+     */
+    public static int getNext(int[] sourceArray, int value, int defaultValue, boolean isCircle) {
+        if (sourceArray.length == 0) {
+            throw new IllegalArgumentException("O comprimento da matriz deve ser superior a 0.");
+        }
+
+        Integer[] array = ObjectUtils.transformIntArray(sourceArray);
+        return getNext(array, value, defaultValue, isCircle);
     }
 }
