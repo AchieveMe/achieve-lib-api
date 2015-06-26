@@ -1,12 +1,12 @@
 language: java
 jdk:
-	- oraclejdk8
+  - oraclejdk8
 
 env:
-	global:
-	# The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
-	#   via the "travis encrypt" command using the project repo's public key
-	- secure: "UjczAzTEkrjfTdi8Zselbg+9e/I+Ls/c2PCrCXfRM7h1gFDnAB1U5pi5LOy0Zf0RGdVxDKJjCSrfvjQJ+xddznVCZ4ZCXJiv9YBQIZqlph5jiJKaBlrV8Ej9mFxaKoacaKG8v4hAQ4YpVLNnilFTJKnfm7lRJlxzDYddGtdWkGa4S4Y+dj8Z56dNPE31y9cR3JseZYBLBa9eRVowNu/uSRhjepc+I7NgJlPt1dzKAh6AJvz5u6d9EnfMoYJaoVcNHe9Qi/9HxG6tlScFb7gooMneAGWJUuGnuRPPFgCaOOwK5a979vfmWXZzn/sHLF+zKSEY4FIPonrmqrhnm5GATmfmJqXJGvYDIAVI5r6Lb5JKwyw0XbAVK2MeZIXFkuRkmo/2Fh+RMFtyoZe8r7sSXbhcljdlyHxoomt8wfUF8eNpjNKe8tbmcgEweWFr+Sa5+sRFAbiKuas9X1xrF5QAnEcw9yU/3OOMbKIzNuiKz83MEzb48OpIZqrGiYM/cfl0TI0YQ/JfDGm8x4smKOLlll5KpkubIjqLpUn9+UrZRYXUd+7hs3GUJHCUxCBQJPKMc26KoNzWNaQ+xbUkZHsapKnN4BThqUhHPszBPm7McogfY//8C5ULciSrHsi4MYihb05xExnZLTQxuet//BlCIo6a2ZuStKqEAWVeHa2kx+8="
+  global:
+  # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+  #   via the "travis encrypt" command using the project repo's public key
+  - secure: "UjczAzTEkrjfTdi8Zselbg+9e/I+Ls/c2PCrCXfRM7h1gFDnAB1U5pi5LOy0Zf0RGdVxDKJjCSrfvjQJ+xddznVCZ4ZCXJiv9YBQIZqlph5jiJKaBlrV8Ej9mFxaKoacaKG8v4hAQ4YpVLNnilFTJKnfm7lRJlxzDYddGtdWkGa4S4Y+dj8Z56dNPE31y9cR3JseZYBLBa9eRVowNu/uSRhjepc+I7NgJlPt1dzKAh6AJvz5u6d9EnfMoYJaoVcNHe9Qi/9HxG6tlScFb7gooMneAGWJUuGnuRPPFgCaOOwK5a979vfmWXZzn/sHLF+zKSEY4FIPonrmqrhnm5GATmfmJqXJGvYDIAVI5r6Lb5JKwyw0XbAVK2MeZIXFkuRkmo/2Fh+RMFtyoZe8r7sSXbhcljdlyHxoomt8wfUF8eNpjNKe8tbmcgEweWFr+Sa5+sRFAbiKuas9X1xrF5QAnEcw9yU/3OOMbKIzNuiKz83MEzb48OpIZqrGiYM/cfl0TI0YQ/JfDGm8x4smKOLlll5KpkubIjqLpUn9+UrZRYXUd+7hs3GUJHCUxCBQJPKMc26KoNzWNaQ+xbUkZHsapKnN4BThqUhHPszBPm7McogfY//8C5ULciSrHsi4MYihb05xExnZLTQxuet//BlCIo6a2ZuStKqEAWVeHa2kx+8="
 
 addons:
   coverity_scan:
