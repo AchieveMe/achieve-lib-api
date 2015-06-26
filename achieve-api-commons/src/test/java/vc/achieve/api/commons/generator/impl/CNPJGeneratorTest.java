@@ -55,7 +55,7 @@ public class CNPJGeneratorTest extends GeneratorSuperTest {
 		assertThat(cnpjWithPoints, is(not(equals(cnpjWithNoPoints))));
 	}
 	
-	@Test(timeout=10)
+	@Test(timeout=100)
 	public void should_has_a_nice_performance_cnpj_with_points() {
 		while (listOfCNPJ.size() <= 500) {
 			cnpjWithPoints = generator.generateValueCNPJ(withPoints);
@@ -64,7 +64,7 @@ public class CNPJGeneratorTest extends GeneratorSuperTest {
 		}
 	}
 	
-	@Test(timeout=10)
+	@Test(timeout=100)
 	public void should_has_a_nice_performance_cnpj_with_no_points() {
 		while (listOfCNPJ.size() <= 500) {
 			cnpjWithNoPoints = generator.generateValueCNPJ(withNoPoints);
