@@ -1,4 +1,4 @@
-package vc.achieve.api.commons.generator;
+package vc.achieve.api.commons.generator.impl;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
@@ -9,8 +9,8 @@ import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+
+import vc.achieve.api.commons.generator.GeneratorSuperTest;
 
 /**
  * <p>Unit test class for {@link CNPJGenerator}.</p>
@@ -18,8 +18,7 @@ import org.junit.runners.JUnit4;
  * @author GAN
  * @since 1.0
  */
-@RunWith(JUnit4.class)
-public class CNPJGeneratorTest {
+public class CNPJGeneratorTest extends GeneratorSuperTest {
 	
 	private boolean withNoPoints;
 	private boolean withPoints;
@@ -29,21 +28,19 @@ public class CNPJGeneratorTest {
 	
 	private List<String> listOfCNPJ;
 	
-	private CNPJGenerator cnpj;
-	
 	@Before
 	public void setUp() {
-		this.cnpj = CNPJGenerator.getInstance();
+		this.generator = CNPJGenerator.getInstance();
 		this.listOfCNPJ = new ArrayList<>();
 		this.withNoPoints = false;
 		this.withPoints = true;
-		this.cnpjWithPoints = cnpj.generateValue(withPoints);
-		this.cnpjWithNoPoints = cnpj.generateValue(withNoPoints);
+		this.cnpjWithPoints = generator.generateValueCNPJ(withPoints);
+		this.cnpjWithNoPoints = generator.generateValueCNPJ(withNoPoints);
 	}
 	
 	@After
 	public void tearDown() {
-		this.cnpj = null;
+		this.generator = null;
 		this.listOfCNPJ = null;
 	}
 
@@ -61,7 +58,7 @@ public class CNPJGeneratorTest {
 	@Test(timeout=10)
 	public void should_has_a_nice_performance_cnpj_with_points() {
 		while (listOfCNPJ.size() <= 500) {
-			cnpjWithPoints = cnpj.generateValue(withPoints);
+			cnpjWithPoints = generator.generateValueCNPJ(withPoints);
 			
 			listOfCNPJ.add(cnpjWithPoints);
 		}
@@ -70,7 +67,7 @@ public class CNPJGeneratorTest {
 	@Test(timeout=10)
 	public void should_has_a_nice_performance_cnpj_with_no_points() {
 		while (listOfCNPJ.size() <= 500) {
-			cnpjWithNoPoints = cnpj.generateValue(withNoPoints);
+			cnpjWithNoPoints = generator.generateValueCNPJ(withNoPoints);
 			
 			listOfCNPJ.add(cnpjWithNoPoints);
 		}

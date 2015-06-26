@@ -1,4 +1,4 @@
-package vc.achieve.api.commons.generator;
+package vc.achieve.api.commons.generator.impl;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
@@ -9,8 +9,8 @@ import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+
+import vc.achieve.api.commons.generator.GeneratorSuperTest;
 
 /**
  * <p>Unit test class for {@link CPFGenerator}.</p>
@@ -18,8 +18,7 @@ import org.junit.runners.JUnit4;
  * @author GAN
  * @since 1.0
  */
-@RunWith(JUnit4.class)
-public class CPFGeneratorTest {
+public class CPFGeneratorTest extends GeneratorSuperTest {
 	
 	private boolean withNoPoints;
 	private boolean withPoints;
@@ -29,21 +28,19 @@ public class CPFGeneratorTest {
 	
 	private List<String> listOfCPF;
 	
-	private CPFGenerator cpf;
-
 	@Before
 	public void setUp() {
-		this.cpf = CPFGenerator.getInstance();
+		this.generator = CPFGenerator.getInstance();
 		this.listOfCPF = new ArrayList<>();
 		this.withNoPoints = false;
 		this.withPoints = true;
-		this.cpfWithPoints = cpf.generateValue(withPoints);
-		this.cpfWithNoPoints = cpf.generateValue(withNoPoints);
+		this.cpfWithPoints = generator.generateValueCPF(withPoints);
+		this.cpfWithNoPoints = generator.generateValueCPF(withNoPoints);
 	}
 
 	@After
 	public void tearDown() {
-		this.cpf = null;
+		this.generator = null;
 		this.listOfCPF = null;
 	}
 
@@ -61,7 +58,7 @@ public class CPFGeneratorTest {
 	@Test(timeout=10)
 	public void should_has_a_nice_performance_cpf_with_points() {
 		while (listOfCPF.size() <= 500) {
-			cpfWithPoints = cpf.generateValue(withPoints);
+			cpfWithPoints = generator.generateValueCPF(withPoints);
 			
 			listOfCPF.add(cpfWithPoints);
 		}
@@ -70,7 +67,7 @@ public class CPFGeneratorTest {
 	@Test(timeout=10)
 	public void should_has_a_nice_performance_cpf_with_no_points() {
 		while (listOfCPF.size() <= 500) {
-			cpfWithNoPoints = cpf.generateValue(withNoPoints);
+			cpfWithNoPoints = generator.generateValueCPF(withNoPoints);
 			
 			listOfCPF.add(cpfWithNoPoints);
 		}
