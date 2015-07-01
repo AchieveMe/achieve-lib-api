@@ -34,7 +34,7 @@ public class PlateGenerator implements Generator {
 	 * @since 1.0
 	 */
     private PlateGenerator() {
-    	if(PlateGenerator.INSTANCE != null) {
+    	if (PlateGenerator.INSTANCE != null) {
     		LOGGER.error("Already instantiated {}", new IllegalStateException());
     	}
     }
@@ -51,5 +51,4 @@ public class PlateGenerator implements Generator {
     	
     	return PlateGenerator.INSTANCE;
     }
-	
 }

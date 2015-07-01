@@ -77,5 +77,4 @@ public class PasswordGenerator implements Generator {
 			return c;
 		}
 	}
-
 }

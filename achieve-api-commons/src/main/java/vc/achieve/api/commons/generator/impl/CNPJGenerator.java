@@ -34,7 +34,7 @@ public final class CNPJGenerator implements Generator {
 	 * @since 1.0
 	 */
 	private CNPJGenerator() {
-		if(CNPJGenerator.INSTANCE != null) {
+		if (CNPJGenerator.INSTANCE != null) {
 			LOGGER.error("Already instantiated {}", new IllegalStateException());
 		}
 	}

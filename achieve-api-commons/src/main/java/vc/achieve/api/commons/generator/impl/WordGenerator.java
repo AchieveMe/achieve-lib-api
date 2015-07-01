@@ -35,7 +35,7 @@ public class WordGenerator implements Generator {
 	 * @since 1.0
 	 */
     private WordGenerator() {
-    	if(WordGenerator.INSTANCE != null) {
+    	if (WordGenerator.INSTANCE != null) {
     		LOGGER.error("Already instantiated {}", new IllegalStateException());
     	}
     }
@@ -74,5 +74,4 @@ public class WordGenerator implements Generator {
 		
 		return sb.toString();
 	}
-	
 }

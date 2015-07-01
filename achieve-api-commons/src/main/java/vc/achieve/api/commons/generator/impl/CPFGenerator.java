@@ -34,7 +34,7 @@ public class CPFGenerator implements Generator {
 	 * @since 1.0
 	 */
     private CPFGenerator() {
-    	if(CPFGenerator.INSTANCE != null) {
+    	if (CPFGenerator.INSTANCE != null) {
     		LOGGER.error("Already instantiated {}", new IllegalStateException());
     	}
 	}
