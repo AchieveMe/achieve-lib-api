@@ -16,6 +16,7 @@ import vc.achieve.api.commons.generator.GeneratorSuperTest;
  * <p>Unit test class for {@link CNPJGenerator}.</p>
  * 
  * @author GAN
+ * @author Alberto Cerqueira
  * @since 1.0
  */
 public class CNPJGeneratorTest extends GeneratorSuperTest {
@@ -55,20 +56,20 @@ public class CNPJGeneratorTest extends GeneratorSuperTest {
 		assertThat(cnpjWithPoints, is(not(equals(cnpjWithNoPoints))));
 	}
 	
-	@Test(timeout=100)
+	@Test(timeout = 100)
 	public void should_has_a_nice_performance_cnpj_with_points() {
 		while (listOfCNPJ.size() <= 500) {
 			cnpjWithPoints = generator.generateValueCNPJ(withPoints);
-			
+			System.out.println(cnpjWithPoints);
 			listOfCNPJ.add(cnpjWithPoints);
 		}
 	}
 	
-	@Test(timeout=100)
+	@Test(timeout = 100)
 	public void should_has_a_nice_performance_cnpj_with_no_points() {
 		while (listOfCNPJ.size() <= 500) {
 			cnpjWithNoPoints = generator.generateValueCNPJ(withNoPoints);
-			
+			System.out.println(cnpjWithNoPoints);
 			listOfCNPJ.add(cnpjWithNoPoints);
 		}
 	}

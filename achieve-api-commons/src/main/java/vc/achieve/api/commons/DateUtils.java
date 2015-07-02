@@ -44,7 +44,7 @@ public class DateUtils {
 	 * @return (String) date in string format with standard parameter
 	 */
 	public static String today(String pattern){
-		return dateToString(Calendar.getInstance(), pattern);
+		return calendarToString(Calendar.getInstance(), pattern);
 	}
 	
 	/**
@@ -56,7 +56,7 @@ public class DateUtils {
 	 * @param pattern (String) data output format
 	 * @return (String) date in string format with standard parameter
 	 */
-	public static String dateToString(Calendar date, String pattern) {
+	public static String calendarToString(Calendar date, String pattern) {
 		if (date == null) {
 			return "";
 		}

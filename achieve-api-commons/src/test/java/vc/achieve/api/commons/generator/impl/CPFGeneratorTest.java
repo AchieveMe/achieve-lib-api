@@ -16,6 +16,7 @@ import vc.achieve.api.commons.generator.GeneratorSuperTest;
  * <p>Unit test class for {@link CPFGenerator}.</p>
  * 
  * @author GAN
+ * @author Alberto Cerqueira
  * @since 1.0
  */
 public class CPFGeneratorTest extends GeneratorSuperTest {
@@ -55,20 +56,20 @@ public class CPFGeneratorTest extends GeneratorSuperTest {
 		assertThat(cpfWithPoints, is(not(equals(cpfWithNoPoints))));
 	}
 	
-	@Test(timeout=10)
+	@Test(timeout = 100)
 	public void should_has_a_nice_performance_cpf_with_points() {
 		while (listOfCPF.size() <= 500) {
 			cpfWithPoints = generator.generateValueCPF(withPoints);
-			
+			System.out.println(cpfWithPoints);
 			listOfCPF.add(cpfWithPoints);
 		}
 	}
 	
-	@Test(timeout=10)
+	@Test(timeout = 100)
 	public void should_has_a_nice_performance_cpf_with_no_points() {
 		while (listOfCPF.size() <= 500) {
 			cpfWithNoPoints = generator.generateValueCPF(withNoPoints);
-			
+			System.out.println(cpfWithNoPoints);
 			listOfCPF.add(cpfWithNoPoints);
 		}
 	}
