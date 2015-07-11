@@ -159,7 +159,7 @@ public class ListUtils {
         return sb.toString();
     }
     
-    public static String join(CharSequence delimiter, Iterable tokens) {
+    public static String join(CharSequence delimiter, Iterable<?> tokens) {
         StringBuilder sb = new StringBuilder();
         boolean firstTime = true;
         for (Object token: tokens) {
