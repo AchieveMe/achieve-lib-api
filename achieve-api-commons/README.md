@@ -1,3 +1,3 @@
 ### Commons - Achieve API
 =====================
-### <sub>Classes com conjunto de métodos que executam funções comuns, muitas vezes re-utilizados com funções que geram dados aleatórios para o sistema.</sub>
+<sub>Classes set of methods that perform common functions often reused. Most utilities classes define these common methods under static scope.</sub>
