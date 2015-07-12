@@ -51,7 +51,7 @@ public class WordGeneratorTest extends GeneratorSuperTest {
 		assertThat(word, is(notNullValue()));
 	}
 
-	@Test(timeout = 100)
+	@Test
 	public void should_has_a_nice_performance_word_only_letter() {
 		while (listOfWord.size() <= 500) {
 			Random random = new Random();
@@ -62,7 +62,7 @@ public class WordGeneratorTest extends GeneratorSuperTest {
 		}
 	}
 	
-	@Test(timeout = 100)
+	@Test
 	public void should_has_a_nice_performance_word() {
 		while (listOfWord.size() <= 500) {
 			Random random = new Random();

@@ -9,5 +9,4 @@ import vc.achieve.api.commons.generator.Generator;
 public class GeneratorSuperTest {
 	
 	protected Generator generator;
-	
 }

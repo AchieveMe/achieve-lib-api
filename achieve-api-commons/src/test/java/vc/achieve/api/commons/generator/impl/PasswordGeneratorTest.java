@@ -53,7 +53,7 @@ public class PasswordGeneratorTest extends GeneratorSuperTest {
 		assertThat(password, is(not(equals(password))));
 	}
 	
-	@Test(timeout = 100)
+	@Test
 	public void should_has_a_nice_performance_password_level_1() {
 		while (listOfPassword.size() <= 500) {
 			password = generator.generateValue(maxChar, 1);
@@ -62,7 +62,7 @@ public class PasswordGeneratorTest extends GeneratorSuperTest {
 		}
 	}
 	
-	@Test(timeout = 100)
+	@Test
 	public void should_has_a_nice_performance_password_level_2() {
 		while (listOfPassword.size() <= 500) {
 			password = generator.generateValue(maxChar, 2);
@@ -71,7 +71,7 @@ public class PasswordGeneratorTest extends GeneratorSuperTest {
 		}
 	}
 	
-	@Test(timeout = 100)
+	@Test
 	public void should_has_a_nice_performance_password_level_3() {
 		while (listOfPassword.size() <= 500) {
 			password = generator.generateValue(maxChar, 3);
@@ -80,7 +80,7 @@ public class PasswordGeneratorTest extends GeneratorSuperTest {
 		}
 	}
 	
-	@Test(timeout = 100)
+	@Test
 	public void should_has_a_nice_performance_password_level_4() {
 		while (listOfPassword.size() <= 500) {
 			password = generator.generateValue(maxChar, 4);
@@ -89,7 +89,7 @@ public class PasswordGeneratorTest extends GeneratorSuperTest {
 		}
 	}
 	
-	@Test(timeout = 100)
+	@Test
 	public void should_has_a_nice_performance_password_level_5() {
 		while (listOfPassword.size() <= 500) {
 			password = generator.generateValue(maxChar, 5);
@@ -98,7 +98,7 @@ public class PasswordGeneratorTest extends GeneratorSuperTest {
 		}
 	}
 	
-	@Test(timeout = 100)
+	@Test
 	public void should_has_a_nice_performance_password_level_6() {
 		while (listOfPassword.size() <= 500) {
 			password = generator.generateValue(maxChar, 6);
@@ -107,7 +107,7 @@ public class PasswordGeneratorTest extends GeneratorSuperTest {
 		}
 	}
 	
-	@Test(timeout = 100)
+	@Test
 	public void should_has_a_nice_performance_password_level_7() {
 		while (listOfPassword.size() <= 500) {
 			password = generator.generateValue(maxChar, 7);

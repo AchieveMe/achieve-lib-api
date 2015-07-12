@@ -56,7 +56,7 @@ public class CPFGeneratorTest extends GeneratorSuperTest {
 		assertThat(cpfWithPoints, is(not(equals(cpfWithNoPoints))));
 	}
 	
-	@Test(timeout = 100)
+	@Test
 	public void should_has_a_nice_performance_cpf_with_points() {
 		while (listOfCPF.size() <= 500) {
 			cpfWithPoints = generator.generateValueCPF(withPoints);
@@ -65,7 +65,7 @@ public class CPFGeneratorTest extends GeneratorSuperTest {
 		}
 	}
 	
-	@Test(timeout = 100)
+	@Test
 	public void should_has_a_nice_performance_cpf_with_no_points() {
 		while (listOfCPF.size() <= 500) {
 			cpfWithNoPoints = generator.generateValueCPF(withNoPoints);

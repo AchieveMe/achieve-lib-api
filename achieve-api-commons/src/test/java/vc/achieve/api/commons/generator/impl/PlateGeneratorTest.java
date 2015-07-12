@@ -43,7 +43,7 @@ public class PlateGeneratorTest extends GeneratorSuperTest {
 		assertThat(plate, is(notNullValue()));
 	}
 
-	@Test(timeout = 100)
+	@Test
 	public void should_has_a_nice_performance_plate() {
 		while (listOfPlate.size() <= 500) {
 			plate = generator.generateValue();
