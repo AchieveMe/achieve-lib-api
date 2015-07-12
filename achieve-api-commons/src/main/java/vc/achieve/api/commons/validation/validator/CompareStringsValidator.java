@@ -32,11 +32,11 @@ public class CompareStringsValidator implements ConstraintValidator<CompareValue
     public boolean isValid(Object target, ConstraintValidatorContext context) {
         boolean isValid = true;
         int validationFailedAtIndex = -1;
-        for(int i=0; i<propertyNames.length; i++) {
+        for (int i = 0; i < propertyNames.length; i++) {
             //explode
             List<String> propertyValues = new ArrayList<String> (propertyNames.length);
             String[] valueIdentifiers = propertyNames[i].split(",");
-            for (int j=0; j<valueIdentifiers.length; j++) {
+            for (int j = 0; j < valueIdentifiers.length; j++) {
                 Object propertyValue = ConstraintValidatorHelper.getPropertyValue(String.class, valueIdentifiers[j], target);
                 if (propertyValue == null) {
                     if (!allowNull) {
@@ -49,7 +49,7 @@ public class CompareStringsValidator implements ConstraintValidator<CompareValue
                 }
             }
 
-            if(isValid) {
+            if (isValid) {
                 isValid = ConstraintValidatorHelper.isValid(propertyValues, comparisonMode);
                 if (!isValid) {
                     validationFailedAtIndex = i;
@@ -59,12 +59,10 @@ public class CompareStringsValidator implements ConstraintValidator<CompareValue
             }
         }
 
-
-
-        if(!isValid) {
+        if (!isValid) {
             boolean isDefaultMessage = "".equals(context.getDefaultConstraintMessageTemplate());
             /* if custom message was provided, don't touch it, otherwise build the default message */
-            if(isDefaultMessage) {
+            if (isDefaultMessage) {
                 String resolvedMessage = ConstraintValidatorHelper.resolveMessage(propertyNames[validationFailedAtIndex].split(","), comparisonMode);
                 context.disableDefaultConstraintViolation();
                 ConstraintViolationBuilder violationBuilder = context.buildConstraintViolationWithTemplate(resolvedMessage);

@@ -1,7 +1,7 @@
 package vc.achieve.api.commons.validation;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.MatcherAssert.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -16,8 +16,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
+ * <p>Unit test class for {@link CompareValues}.</p>
+ * 
  * @author GAN
- *
+ * @author Alberto Cerqueira
+ * @since 1.0
  */
 public class CompareValuesTest {
 	
@@ -37,6 +40,10 @@ public class CompareValuesTest {
 	public void should_test_with_valid_comparision() {
 		Set<ConstraintViolation<ValidUserComparision>> validComparitionBetweenValues = validator.validate(new ValidUserComparision());
 		
+		for (ConstraintViolation<ValidUserComparision> validComparitionBetweenValue : validComparitionBetweenValues) {
+			System.out.println(validComparitionBetweenValue.getMessage());
+		}
+		
 		assertThat(validComparitionBetweenValues.isEmpty(), is(true));
 	}
 	
@@ -53,8 +60,11 @@ public class CompareValuesTest {
 
 	
 	/**
+	 * <p>Unit test class to compare.</p>
+	 * 
 	 * @author GAN
-	 *
+	 * @author Alberto Cerqueira
+	 * @since 1.0
 	 */
 	@CompareValues(propertyNames={"email", "emailToConfirm"})
 	public class ValidUserComparision {
@@ -77,28 +87,27 @@ public class CompareValuesTest {
 	}
 	
 	/**
+	 * <p>Unit test class to compare.</p>
 	 * 
 	 * @author GAN
-	 *
+	 * @author Alberto Cerqueira
+	 * @since 1.0
 	 */
 	@CompareValues(propertyNames = {"dateFrom", "dateTo"})
 	public class InvalidDateComparision {
 
-		Date dateFrom = new GregorianCalendar(2015,10,10).getTime();
-        Date dateTo = new GregorianCalendar(2020,10,10).getTime();
+		Date dateFrom = new GregorianCalendar(2015, 10, 10).getTime();
+        Date dateTo = new GregorianCalendar(2020, 10, 10).getTime();
 
         public Date getDateFrom() {
             return dateFrom;
         }
-
         public void setDateFrom(Date dateFrom) {
             this.dateFrom = dateFrom;
         }
-
         public Date getDateTo() {
             return dateTo;
         }
-
         public void setDateTo(Date dateTo) {
             this.dateTo = dateTo;
         }
