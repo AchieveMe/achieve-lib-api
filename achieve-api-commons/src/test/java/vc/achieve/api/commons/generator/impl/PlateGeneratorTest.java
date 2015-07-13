@@ -47,7 +47,7 @@ public class PlateGeneratorTest extends GeneratorSuperTest {
 	public void should_has_a_nice_performance_plate() {
 		while (listOfPlate.size() <= 500) {
 			plate = generator.generateValue();
-			System.out.println(plate);
+			
 			listOfPlate.add(plate);
 		}
 	}
