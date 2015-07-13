@@ -33,7 +33,6 @@ public class PasswordGeneratorTest extends GeneratorSuperTest {
 		this.generator = PasswordGenerator.getInstance();
 		this.listOfPassword = new ArrayList<>();
 		this.maxChar = 10;
-		this.level = 5;
 		this.password = generator.generateValue(maxChar, level);
 	}
 
@@ -55,63 +54,77 @@ public class PasswordGeneratorTest extends GeneratorSuperTest {
 	
 	@Test
 	public void should_has_a_nice_performance_password_level_1() {
+		this.level = 1;
+		
 		while (listOfPassword.size() <= 500) {
-			password = generator.generateValue(maxChar, 1);
-			System.out.println(password);
+			password = generator.generateValue(maxChar, level);
+			
 			listOfPassword.add(password);
 		}
 	}
 	
 	@Test
 	public void should_has_a_nice_performance_password_level_2() {
+		this.level = 2;
+		
 		while (listOfPassword.size() <= 500) {
-			password = generator.generateValue(maxChar, 2);
-			System.out.println(password);
+			password = generator.generateValue(maxChar, level);
+			
 			listOfPassword.add(password);
 		}
 	}
 	
 	@Test
 	public void should_has_a_nice_performance_password_level_3() {
+		this.level = 3;
+		
 		while (listOfPassword.size() <= 500) {
-			password = generator.generateValue(maxChar, 3);
-			System.out.println(password);
+			password = generator.generateValue(maxChar, level);
+			
 			listOfPassword.add(password);
 		}
 	}
 	
 	@Test
 	public void should_has_a_nice_performance_password_level_4() {
+		this.level = 4;
+		
 		while (listOfPassword.size() <= 500) {
-			password = generator.generateValue(maxChar, 4);
-			System.out.println(password);
+			password = generator.generateValue(maxChar, level);
+			
 			listOfPassword.add(password);
 		}
 	}
 	
 	@Test
 	public void should_has_a_nice_performance_password_level_5() {
+		this.level = 5;
+		
 		while (listOfPassword.size() <= 500) {
-			password = generator.generateValue(maxChar, 5);
-			System.out.println(password);
+			password = generator.generateValue(maxChar, level);
+			
 			listOfPassword.add(password);
 		}
 	}
 	
 	@Test
 	public void should_has_a_nice_performance_password_level_6() {
+		this.level = 6;
+		
 		while (listOfPassword.size() <= 500) {
-			password = generator.generateValue(maxChar, 6);
-			System.out.println(password);
+			password = generator.generateValue(maxChar, level);
+			
 			listOfPassword.add(password);
 		}
 	}
 	
 	@Test
 	public void should_has_a_nice_performance_password_level_7() {
+		this.level = 7;
+		
 		while (listOfPassword.size() <= 500) {
-			password = generator.generateValue(maxChar, 7);
-			System.out.println(password);
+			password = generator.generateValue(maxChar, level);
+			
 			listOfPassword.add(password);
 		}
 	}
