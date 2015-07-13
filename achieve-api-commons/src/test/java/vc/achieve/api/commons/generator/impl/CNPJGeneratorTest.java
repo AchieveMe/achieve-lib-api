@@ -60,7 +60,7 @@ public class CNPJGeneratorTest extends GeneratorSuperTest {
 	public void should_has_a_nice_performance_cnpj_with_points() {
 		while (listOfCNPJ.size() <= 500) {
 			cnpjWithPoints = generator.generateValueCNPJ(withPoints);
-			System.out.println(cnpjWithPoints);
+			
 			listOfCNPJ.add(cnpjWithPoints);
 		}
 	}
@@ -69,7 +69,7 @@ public class CNPJGeneratorTest extends GeneratorSuperTest {
 	public void should_has_a_nice_performance_cnpj_with_no_points() {
 		while (listOfCNPJ.size() <= 500) {
 			cnpjWithNoPoints = generator.generateValueCNPJ(withNoPoints);
-			System.out.println(cnpjWithNoPoints);
+			
 			listOfCNPJ.add(cnpjWithNoPoints);
 		}
 	}
