@@ -22,25 +22,30 @@ import vc.achieve.api.commons.generator.GeneratorSuperTest;
  */
 public class WordGeneratorTest extends GeneratorSuperTest {
 
-	private int maxChar = 3;
+	private int maxChar;
 	private boolean onlyLetter = true;
 	private boolean letter = false;
 	
 	private String wordOnlyLetter;
 	private String word;
 	
+	private Random random;
+	
 	private List<String> listOfWord;
 	
 	@Before
 	public void setUp() {
+		this.random = new Random();
 		this.generator = WordGenerator.getInstance();
-		this.listOfWord = new ArrayList<String>();
+		this.listOfWord = new ArrayList<>();
+		this.maxChar = random.nextInt(1000);
 		this.wordOnlyLetter = generator.generateValue(maxChar, onlyLetter);
 		this.word = generator.generateValue(maxChar, letter);
 	}
 
 	@After
 	public void tearDown() {
+		this.random = null;
 		this.generator = null;
 		this.listOfWord = null;
 	}
@@ -54,10 +59,6 @@ public class WordGeneratorTest extends GeneratorSuperTest {
 	@Test
 	public void should_has_a_nice_performance_word_only_letter() {
 		while (listOfWord.size() <= 500) {
-			Random random = new Random();
-			this.maxChar = random.nextInt(1000);
-			wordOnlyLetter = generator.generateValue(maxChar, onlyLetter);
-			System.out.println(wordOnlyLetter);
 			listOfWord.add(wordOnlyLetter);
 		}
 	}
@@ -65,10 +66,6 @@ public class WordGeneratorTest extends GeneratorSuperTest {
 	@Test
 	public void should_has_a_nice_performance_word() {
 		while (listOfWord.size() <= 500) {
-			Random random = new Random();
-			this.maxChar = random.nextInt(1000);
-			word = generator.generateValue(maxChar, letter);
-			System.out.println(word);
 			listOfWord.add(word);
 		}
 	}
