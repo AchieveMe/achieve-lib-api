@@ -1,4 +1,4 @@
-package vc.achieve.api.commons;
+package vc.achieve.api.commons.util;
 
 /**
  * <p> Util class to work with any <b>Object</b>.</p>

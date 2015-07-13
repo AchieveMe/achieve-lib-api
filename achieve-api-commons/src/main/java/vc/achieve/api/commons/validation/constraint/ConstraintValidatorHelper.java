@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import vc.achieve.api.commons.enumtype.StringComparisonMode;
+import vc.achieve.api.commons.validation.enumtype.StringComparisonMode;
 
 /**
  * @author GAN

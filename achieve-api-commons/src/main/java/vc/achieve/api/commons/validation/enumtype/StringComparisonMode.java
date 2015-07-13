@@ -1,4 +1,4 @@
-package vc.achieve.api.commons.enumtype;
+package vc.achieve.api.commons.validation.enumtype;
 
 /**
  * @author GAN

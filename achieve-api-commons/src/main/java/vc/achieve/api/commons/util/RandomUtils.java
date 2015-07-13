@@ -1,4 +1,4 @@
-package vc.achieve.api.commons;
+package vc.achieve.api.commons.util;
 
 import java.util.Random;
 

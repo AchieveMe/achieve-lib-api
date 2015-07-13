@@ -7,8 +7,8 @@ import java.text.ParseException;
 import java.util.Currency;
 import java.util.Locale;
 
-import vc.achieve.api.commons.LocaleUtils;
-import vc.achieve.api.commons.StringUtils;
+import vc.achieve.api.commons.util.LocaleUtils;
+import vc.achieve.api.commons.util.StringUtils;
 
 /**
  * <p> Class for formatting monetary values. (<b>currency value</b>).</p>

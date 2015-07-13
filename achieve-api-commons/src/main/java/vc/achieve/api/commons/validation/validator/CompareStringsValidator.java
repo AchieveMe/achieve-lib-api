@@ -7,9 +7,9 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import javax.validation.ConstraintValidatorContext.ConstraintViolationBuilder;
 
-import vc.achieve.api.commons.enumtype.StringComparisonMode;
 import vc.achieve.api.commons.validation.CompareValues;
 import vc.achieve.api.commons.validation.constraint.ConstraintValidatorHelper;
+import vc.achieve.api.commons.validation.enumtype.StringComparisonMode;
 
 /**
  * @author GAN

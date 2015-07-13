@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import vc.achieve.api.commons.enumtype.StringComparisonMode;
+import vc.achieve.api.commons.validation.enumtype.StringComparisonMode;
 import vc.achieve.api.commons.validation.validator.CompareStringsValidator;
 
 @Target({ElementType.TYPE})
