@@ -1,7 +1,7 @@
 package vc.achieve.api.commons.validation;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.*;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -40,20 +40,12 @@ public class CompareValuesTest {
 	public void should_test_with_valid_comparision() {
 		Set<ConstraintViolation<ValidUserComparision>> validComparitionBetweenValues = validator.validate(new ValidUserComparision());
 		
-		for (ConstraintViolation<ValidUserComparision> validComparitionBetweenValue : validComparitionBetweenValues) {
-			System.out.println(validComparitionBetweenValue.getMessage());
-		}
-		
 		assertThat(validComparitionBetweenValues.isEmpty(), is(true));
 	}
 	
 	@Test
 	public void should_test_with_invalid_comparision() {
 		Set<ConstraintViolation<InvalidDateComparision>> invalidComparitionBetweenValues = validator.validate(new InvalidDateComparision());
-		
-		for (ConstraintViolation<InvalidDateComparision> invalidComparitionBetweenValue : invalidComparitionBetweenValues) {
-			System.out.println(invalidComparitionBetweenValue.getMessage());
-		}
 		
 		assertThat(invalidComparitionBetweenValues.isEmpty(), is(false));
 	}
@@ -96,8 +88,8 @@ public class CompareValuesTest {
 	@CompareValues(propertyNames = {"dateFrom", "dateTo"})
 	public class InvalidDateComparision {
 
-		Date dateFrom = new GregorianCalendar(2015, 10, 10).getTime();
-        Date dateTo = new GregorianCalendar(2020, 10, 10).getTime();
+		Date dateFrom = new GregorianCalendar(2025,10,10).getTime();
+        Date dateTo = new GregorianCalendar(2020,10,10).getTime();
 
         public Date getDateFrom() {
             return dateFrom;
