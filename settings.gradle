@@ -1,2 +1,3 @@
-
 include "achieve-api-commons", "achieve-api-oauth"
+
+rootProject.name = 'achieve-api'
