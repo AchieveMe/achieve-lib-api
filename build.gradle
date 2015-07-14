@@ -46,9 +46,13 @@ subprojects {
 
 release {
     dependsOn subprojects.build
-	push = false 
+	push = true 
 	versionSuffix = '-SNAPSHOT' 
 	tagPrefix = 'v'
+}
+
+task myJavadocs(type: Javadoc) {
+    failOnError = false
 }
  
 task wrapper(type: Wrapper) {
