@@ -12,13 +12,15 @@ import vc.achieve.api.commons.validation.constraint.ConstraintValidatorHelper;
 import vc.achieve.api.commons.validation.enumtype.ComparisonMode;
 
 /**
- * <p>Validator for our values.</p>
+ * <p>Compare the validation
+ * through the values that is passed
+ * by comparing it.</p>
  * 
  * @author GAN
  * @author Alberto Cerqueira
  * @since 1.0
  */
-public class CompareStringsValidator implements ConstraintValidator<CompareValues, Object> {
+public class CompareValidator implements ConstraintValidator<CompareValues, Object> {
 	
 	private String[] propertyNames;
     private ComparisonMode comparisonMode;
@@ -34,7 +36,8 @@ public class CompareStringsValidator implements ConstraintValidator<CompareValue
     @Override
     public boolean isValid(Object target, ConstraintValidatorContext context) {
     	boolean isValid = true;
-        List<String> propertyValues = new ArrayList<String> (propertyNames.length);
+        List<String> propertyValues = new ArrayList<> (propertyNames.length);
+        
         for (int i = 0, l = propertyNames.length; i < l; i++) {
             String propertyValue = ConstraintValidatorHelper.getPropertyValue(String.class, propertyNames[i], target);
             if (propertyValue == null) {
@@ -49,9 +52,7 @@ public class CompareStringsValidator implements ConstraintValidator<CompareValue
 
         if (isValid) {
             isValid = ConstraintValidatorHelper.isValid(propertyValues, comparisonMode);
-        }
-
-        if (!isValid) {
+        } else {
         	boolean isDefaultMessage = "".equals(context.getDefaultConstraintMessageTemplate());
             
             if (isDefaultMessage) {
@@ -61,6 +62,7 @@ public class CompareStringsValidator implements ConstraintValidator<CompareValue
                 violationBuilder.addConstraintViolation();
             }
         }
+        
         return isValid;
     }
 }

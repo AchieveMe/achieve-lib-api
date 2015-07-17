@@ -67,8 +67,8 @@ public class CompareValuesTest {
 	@CompareValues(propertyNames={"email", "emailToConfirm"})
 	public class ValidUserComparision {
 
-		String email = "guiandmag@gmail.com";
-		String emailToConfirm = "guiandmag@gmail.com";
+		private String email = "guiandmag@gmail.com";
+		private String emailToConfirm = "guiandmag@gmail.com";
 		
 		public String getEmail() {
 			return email;
@@ -94,8 +94,8 @@ public class CompareValuesTest {
 	@CompareValues(propertyNames={"email", "emailToConfirm"})
 	public class invalidUserComparision {
 
-		String email = "alberto.cerqueira1990@gmail.com";
-		String emailToConfirm = "alberto.cerqueira1990@gmail";
+		private String email = "alberto.cerqueira1990@gmail.com";
+		private String emailToConfirm = "alberto.cerqueira1990@gmail";
 		
 		public String getEmail() {
 			return email;
@@ -121,8 +121,8 @@ public class CompareValuesTest {
 	@CompareValues(propertyNames = {"dateFrom", "dateTo"})
 	public class InvalidDateComparision {
 
-		Date dateFrom = new GregorianCalendar(2025, 10, 10).getTime();
-        Date dateTo = new GregorianCalendar(2020, 10, 10).getTime();
+		private Date dateFrom = new GregorianCalendar(2025, 10, 10).getTime();
+        private Date dateTo = new GregorianCalendar(2020, 10, 10).getTime();
 
         public Date getDateFrom() {
             return dateFrom;
