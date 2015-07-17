@@ -15,6 +15,7 @@ import vc.achieve.api.commons.validation.enumtype.ComparisonMode;
  * <p>Validator for our values.</p>
  * 
  * @author GAN
+ * @author Alberto Cerqueira
  * @since 1.0
  */
 public class CompareStringsValidator implements ConstraintValidator<CompareValues, Object> {
@@ -32,42 +33,29 @@ public class CompareStringsValidator implements ConstraintValidator<CompareValue
 
     @Override
     public boolean isValid(Object target, ConstraintValidatorContext context) {
-        boolean isValid = true;
-        int validationFailedAtIndex = -1;
-        
-        for (int i = 0; i < propertyNames.length; i++) {
-            List<String> propertyValues = new ArrayList<>(propertyNames.length);
-            String[] valueIdentifiers = propertyNames[i].split(",");
-            
-            for (int j = 0; j < valueIdentifiers.length; j++) {
-                Object propertyValue = ConstraintValidatorHelper.getPropertyValue(String.class, valueIdentifiers[j], target);
-                
-                if (propertyValue == null) {
-                    if (!allowNull) {
-                        isValid = false;
-                        validationFailedAtIndex = i;
-                        break;
-                    }
-                } else {
-                    propertyValues.add((String) propertyValue);
-                }
-            }
-
-            if (isValid) {
-                isValid = ConstraintValidatorHelper.isValid(propertyValues, comparisonMode);
-                if (!isValid) {
-                    validationFailedAtIndex = i;
+    	boolean isValid = true;
+        List<String> propertyValues = new ArrayList<String> (propertyNames.length);
+        for (int i = 0, l = propertyNames.length; i < l; i++) {
+            String propertyValue = ConstraintValidatorHelper.getPropertyValue(String.class, propertyNames[i], target);
+            if (propertyValue == null) {
+                if (!allowNull) {
+                    isValid = false;
+                    break;
                 }
             } else {
-                break;
+                propertyValues.add(propertyValue);
             }
         }
 
+        if (isValid) {
+            isValid = ConstraintValidatorHelper.isValid(propertyValues, comparisonMode);
+        }
+
         if (!isValid) {
-            boolean isDefaultMessage = "".equals(context.getDefaultConstraintMessageTemplate());
+        	boolean isDefaultMessage = "".equals(context.getDefaultConstraintMessageTemplate());
             
             if (isDefaultMessage) {
-                String resolvedMessage = ConstraintValidatorHelper.resolveMessage(propertyNames[validationFailedAtIndex].split(","), comparisonMode);
+            	String resolvedMessage = ConstraintValidatorHelper.resolveMessage(propertyNames, comparisonMode);
                 context.disableDefaultConstraintViolation();
                 ConstraintViolationBuilder violationBuilder = context.buildConstraintViolationWithTemplate(resolvedMessage);
                 violationBuilder.addConstraintViolation();

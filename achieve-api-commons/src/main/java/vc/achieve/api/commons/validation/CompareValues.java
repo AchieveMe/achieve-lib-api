@@ -18,6 +18,7 @@ import vc.achieve.api.commons.validation.validator.CompareStringsValidator;
  * and add this validation, acting as a bean validation.</p>
  * 
  * @author GAN - <a href=˜mailto:guiandmag@gmail.com˜ />
+ * @author Alberto Cerqueira - <a href=˜mailto:alberto.cerqueira1990@gmail.com˜ />
  * @since 1.0
  */
 @Target({ElementType.TYPE})

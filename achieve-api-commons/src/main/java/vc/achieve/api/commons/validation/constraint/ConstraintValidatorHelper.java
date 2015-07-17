@@ -93,14 +93,12 @@ public abstract class ConstraintValidatorHelper {
         switch (comparisonMode) {
         	case EQUAL:
         	case EQUAL_IGNORE_CASE:
-        		Set<String> uniqueValues = new HashSet<> (values);
-        		return uniqueValues.size() >= 1 || uniqueValues.size() == 0 ? true : false;
-        		
-        	case NOT_EQUAL:
-        	case NOT_EQUAL_IGNORE_CASE:
-        		Set<String> allValues = new HashSet<> (values);
-        		return allValues.size() == values.size() ? true : false;
-        		
+                Set<String> uniqueValues = new HashSet<String> (values);
+                return uniqueValues.size() == 1 ? true : false;
+            case NOT_EQUAL:
+            case NOT_EQUAL_IGNORE_CASE:
+                Set<String> allValues = new HashSet<String> (values);
+                return allValues.size() == values.size() ? true : false;
         }
 
         return true;
